@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" href="./animate.css-master/animate.css">
+        </head>
+<body>
+
+<section class="login-page">
+  	 <form>
+  	 	 <div class="box">
+  	 	 	   <div class="form-head">
+  	 	 	   	  <h2>ADD A CUSTOMER</h2>
+  	 	 	   </div>
+  	 	 	   <div class="form-body">
+  	 	 	   	  <input type="email" id="emailk" placeholder="Enter email" />
+                    <input type="text" id="room" placeholder="Enter room no. assigned" />
+                    
+  	 	 	   </div>
+  	 	 	   <div class="form-footer" >
+                  
+  	 	 	   	  <p id="getl" style="cursor: pointer;color: gold ;" >LOAD CUSTOMER</p>
+
+                   <br>
+                    <p id="kk" class="animated infinite bounce delay-1s"style="color: aliceblue;display: none">LOADING...</p>
+                                      <br>
+                   <p id="uu" style="color: firebrick;" ></p>
+  	 	 	   </div>
+  	 	 </div>
+  	 </form>
+  </section>
+
+
+<script>
+    var c=0;
+
+ 
+ document.getElementById("getl").addEventListener("click",getLocation);
+    
+    
+  
+function getLocation() {
+         var fg= document.getElementById("kk");
+    if(fg.style.display==="none"){
+        fg.style.display="block";
+        
+        
+    }else{
+        fg.style.display="none";
+    }
+   
+    
+    
+    
+    
+
+
+  
+    
+
+ var cordiref= firebase.database().ref("customers/");
+        cordiref.orderByChild("email").equalTo(document.getElementById("emailk").value).on("child_added", function(data){
+          var newVok= data.val();
+            var cname=newVok.name;
+            var cemail=newVok.email;
+            
+            var cphone=newVok.phone;
+            var cdepart=newVok.datedeparture;
+            var carrive=newVok.datearrival;
+            var cmsg=newVok.message;
+            var cdrt=newVok.datereported;
+            var ctrt=newVok.timereported;
+                var roomuser=document.getElementById("room").value;
+           
+                     var kpliref = firebase.database().ref('hotelusers/');
+          
+    var data={                                       
+        email: cemail,
+        name: cname,
+        phone:cphone,
+        datedeparture: cdepart,
+        datearrival: carrive,
+        message: cmsg,
+        roomu:roomuser
+       
+        
+    }
+    kpliref.push(data).then(function(){
+                             window.alert("Customer added succesfully");
+            window.open('verifycustomerbyemail.html','_self');
+                             });
+                    
+                      });
+     
+
+}
+   
+    
+</script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-database.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+    var config = {
+    apiKey: "AIzaSyDrK1g6vSkYTZWIB0PdNqHqzU14WqiteF4",
+    authDomain: "hotelo-4b72e.firebaseapp.com",
+    databaseURL: "https://hotelo-4b72e.firebaseio.com",
+    projectId: "hotelo-4b72e",
+    storageBucket: "hotelo-4b72e.appspot.com",
+    messagingSenderId: "276941798968",
+    appId: "1:276941798968:web:8f86142c26fcc3689330cd",
+    measurementId: "G-CZF7GR36M3"
+ 
+ 
+  };
+     firebase.initializeApp(config);
+    console.log(firebase);
+  
+    
+    
+      // Set the configuration for your app
+  // TODO: Replace with your project's config object
+  
+ 
+
+  // Get a reference to the database service
+  
+        
+</script>
+
+</body>
+</html>

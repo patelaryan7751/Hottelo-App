@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+        <link rel="stylesheet" href="./animate.css-master/animate.css">
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+         <style>
+            @media screen and (max-width:720px){
+.login-page{
+	background-image: url('./bedroom-decoration-hotels-interior-833045.jpg');
+	background-size: cover;
+	background-attachment: fixed;
+	position: relative;
+}
+}
+@media screen and (min-width:721px){
+.login-page{
+	background-image: url('./black-and-silver-film-camera-on-brown-wooden-surface-733853.jpg');
+	background-size: cover;
+    height: 100vh;
+	background-attachment: fixed;
+	position: relative;
+}
+}
+        </style>
+                
+        </head>
+   
+    
+<body>
+
+
+    <div class="container-fluid login-page">
+   <center >
+  	 <h1>Hotels Booked</h1>
+                  <br><br>
+  	 	 	   	 <a href="report2.html"><img src="palm-trees-at-night-258154.jpg" width="500px" height="500px" class="img-fluid" ></a>
+                  <center><a href="report2.html" style="text-decoration: none; color: gold"> <h2>HOTEL NIKKI</h2></a></center> 
+       <br>
+                     	 	 	   	 
+    
+       <a href="logout.html" style="text-decoration: none; color: gold;"><h3>LOG OUT</h3></a>
+       </center>
+</div>
+        
+  
+
+
+<script>
+   
+ var emkey=sessionStorage.getItem("emkey");
+    if(emkey==null)
+        {
+            window.open('ki.html','_self');
+        }
+    
+  
+    
+
+    
+</script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-database.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+    var config = {
+    apiKey: "AIzaSyDrK1g6vSkYTZWIB0PdNqHqzU14WqiteF4",
+    authDomain: "hotelo-4b72e.firebaseapp.com",
+    databaseURL: "https://hotelo-4b72e.firebaseio.com",
+    projectId: "hotelo-4b72e",
+    storageBucket: "hotelo-4b72e.appspot.com",
+    messagingSenderId: "276941798968",
+    appId: "1:276941798968:web:8f86142c26fcc3689330cd",
+    measurementId: "G-CZF7GR36M3"
+ 
+ 
+  };
+     firebase.initializeApp(config);
+    console.log(firebase);
+  
+    
+    
+      // Set the configuration for your app
+  // TODO: Replace with your project's config object
+  
+ 
+
+  // Get a reference to the database service
+  
+        
+</script>
+
+</body>
+</html>

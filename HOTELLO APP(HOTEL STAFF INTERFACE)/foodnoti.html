@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+        </head>
+<body>
+
+
+<button onclick="getLocation()">show</button>
+    
+<script>
+    
+        
+  
+var rmsg="no";
+ 
+    
+   
+ 
+function getLocation() {
+   
+     var hjcordiref= firebase.database().ref('foodservice/');
+     hjcordiref.orderByChild("email").on("child_added", function(data){
+          var newVoke= data.val();
+    
+   
+ 
+
+           
+            
+         document.write("Name"+":"+" "+newVoke.name+"<br>");
+          document.write("Email"+":"+" "+newVoke.email+"<br>");
+         document.write("Phone no."+":"+" "+newVoke.phone+"<br>");
+         document.write("Room no."+":"+" "+newVoke.room+"<br>");
+
+         document.write("Message:"+":"+" "+newVoke.message+"<br>");
+         document.write("<br>"+"<br>");
+            
+              });
+           
+         
+    }
+    
+
+    
+</script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-database.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+    var config = {
+    apiKey: "AIzaSyDrK1g6vSkYTZWIB0PdNqHqzU14WqiteF4",
+    authDomain: "hotelo-4b72e.firebaseapp.com",
+    databaseURL: "https://hotelo-4b72e.firebaseio.com",
+    projectId: "hotelo-4b72e",
+    storageBucket: "hotelo-4b72e.appspot.com",
+    messagingSenderId: "276941798968",
+    appId: "1:276941798968:web:8f86142c26fcc3689330cd",
+    measurementId: "G-CZF7GR36M3"
+ 
+  };
+     firebase.initializeApp(config);
+    console.log(firebase);
+  
+    
+    
+      // Set the configuration for your app
+  // TODO: Replace with your project's config object
+  
+ 
+
+  // Get a reference to the database service
+  
+        
+</script>
+
+</body>
+</html>

@@ -1,0 +1,194 @@
+<html>
+   <head>
+        <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+        </head>
+    <style>
+        @media screen and (max-width:720px)
+        {
+        body{
+            background-image: url(bedroom-decoration-hotels-interior-833045.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;      
+        }
+            }
+        
+        @media screen and (min-width:721px)
+        {
+        body{
+            background-image: url(black-and-silver-film-camera-on-brown-wooden-surface-733853.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;      
+        }
+            }
+        hr{
+            background: white;
+        }
+        .contact-form{
+            background:rgba(0,0,0,.6);
+            color: white;
+            margin-top: 100px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px 3px grey;
+        }
+    
+    
+    </style>
+    <body>
+    <div class="container contact-form">
+        <h1>Feedback</h1>
+        <hr>
+        <div class="row">
+            <div class="col-md-6">
+            <img src="333_13231.jpg">
+                
+            </div>
+            <div class="col-md-6">
+                
+               <center> <a href="tel:7751931940"><img src="CALL.png" class="img-fluid" width="50px" height="50px">CALL US</a> <br> OR</center>
+                 
+                <div class="form-group">
+                <label>DESCRIPTION</label>
+                <textarea class="form-control" rows="5" id="cmsg"></textarea>
+                </div>
+                <div class="form-group">
+            <button class="btn btn-primary btn-block" id="getl">SUBMIT</button>
+                    <p id="fjj" style="display: none;">WAIT FOR A WHILE WE RECORD YOUR RESPONSE</p>
+                </div>
+                
+            
+            </div>
+        
+        </div>
+        
+        
+        
+        
+        
+        </div>
+        <script>
+            var hemkey=sessionStorage.getItem("hemkey");
+    if(hemkey==null)
+        {
+            window.open('hotellogin.html','_self');
+        }
+            
+            
+            document.getElementById("getl").addEventListener("click",getreport);
+            function getreport()
+             {
+                 var fg= document.getElementById("getl");
+    if(fg.style.display==="none"){
+        fg.style.display="block";
+        
+        
+    }else{
+        fg.style.display="none";
+    }
+                 var Yg= document.getElementById("fjj");
+    if(Yg.style.display==="none"){
+        Yg.style.display="block";
+        
+        
+    }else{
+        Yg.style.display="none";
+    }
+                 
+                 
+                 
+    
+
+ 
+     var cordiref= firebase.database().ref('hotelusers/');
+        cordiref.orderByChild("email").equalTo(hemkey).on("child_added", function(data){
+          var newVok= data.val();
+            var ty=newVok.name;
+            var pho=newVok.phone;
+            var gy=newVok.email;
+            var rom=newVok.roomu;
+            
+            
+    
+                 var today = new Date();
+            var fg= today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+            var tyu= today.getHours()+":"+today.getMinutes()+":"+today.getSeconds();
+             
+                         
+                         
+                var kpliref = firebase.database().ref('feedback/');
+            
+    var data={
+        
+                                               
+        email:gy ,
+        room:rom,
+        name: ty,
+        phone:pho,
+        
+        message: document.getElementById("cmsg").value
+
+        
+        
+    }
+     kpliref.push(data).then(function(){
+                             window.alert("Thank you for your feedback !!!");
+        
+            window.open('checkout.html','_self');
+                             });
+ });   
+    
+}
+                  
+    
+            
+            
+        
+        
+        
+        </script>
+        
+    
+    
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-database.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-storage.js"></script>
+        <script>
+  // Your web app's Firebase configuration
+    var config = {
+    
+      apiKey: "AIzaSyDrK1g6vSkYTZWIB0PdNqHqzU14WqiteF4",
+    authDomain: "hotelo-4b72e.firebaseapp.com",
+    databaseURL: "https://hotelo-4b72e.firebaseio.com",
+    projectId: "hotelo-4b72e",
+    storageBucket: "hotelo-4b72e.appspot.com",
+    messagingSenderId: "276941798968",
+    appId: "1:276941798968:web:8f86142c26fcc3689330cd",
+    measurementId: "G-CZF7GR36M3"
+ 
+  };
+     firebase.initializeApp(config);
+    console.log(firebase);
+  
+    
+    
+      // Set the configuration for your app
+  // TODO: Replace with your project's config object
+  
+ 
+
+  // Get a reference to the database service
+  
+        
+</script>
+    </body>
+
+
+
+</html>
